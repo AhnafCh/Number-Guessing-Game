@@ -1,0 +1,22 @@
+import random
+
+
+def guess(x):
+    r_num = random.randint(1, x)
+    guess = 0
+    while guess != r_num:
+        guess = int(input(f"Guess a number between 1 and {x}: "))
+        highmid = x - x / 4
+        lowmid = x / 2 - x / 4
+        if guess > r_num and guess >= highmid:
+            print("Guess again! Too high!")
+        elif r_num < guess <= highmid:
+            print("Guess again! Little lower!")
+        elif guess < r_num and guess <= lowmid:
+            print("Guess again! Too low!")
+        elif r_num > guess >= lowmid:
+            print("Guess again! Little higher!")
+    print(f"Great job! You guessed {r_num}!")
+
+
+guess(10)
