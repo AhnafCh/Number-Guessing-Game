@@ -1,0 +1,85 @@
+blocks = {1: '1', 2: '2', 3: '3', 4: '4', 5: '5', 6: '6', 7: '7', 8: '8', 9: '9'}
+
+def show():
+    for i in range(9):
+        print(list(blocks.values())[i], end=' ')
+        if i == 2 or i == 5:
+            print()
+    print()
+
+def win_check():
+    global win
+    win = 0
+    b = ['for keeping it simple'] + list(blocks.values())
+    if b[1] == b[2] == b[3]:
+        if b[1] == 'X':
+            print('X wins\n')
+        else:
+            print('v wins\n')
+        win = 1
+    elif b[1] == b[5] == b[9]:
+        if b[1] == 'X':
+            print('X wins\n')
+        else:
+            print('O wins\n')
+        win = 1
+    elif b[1] == b[4] == b[7]:
+        if b[1] == 'X':
+            print('X wins\n')
+        else:
+            print('O wins\n')
+        win = 1
+    elif b[2] == b[5] == b[8]:
+        if b[2] == 'X':
+            print('X wins\n')
+        else:
+            print('O wins\n')
+        win = 1
+    elif b[3] == b[6] == b[9]:
+        if b[3] == 'X':
+            print('X wins\n')
+        else:
+            print('O wins\n')
+        win = 1
+    elif b[3] == b[5] == b[7]:
+        if b[3] == 'X':
+            print('X wins\n')
+        else:
+            print('O wins\n')
+        win = 1
+    elif b[4] == b[5] == b[6]:
+        if b[4] == 'X':
+            print('X wins\n')
+        else:
+            print('O wins\n')
+        win = 1
+    elif b[7] == b[8] == b[9]:
+        if b[7] == 'X':
+            print('X wins\n')
+        else:
+            print('O wins\n')
+        win = 1
+
+for m in range(9):
+        show()
+        print()
+        if m % 2 == 0:
+            print("Turn for X\n")
+            inp = int(input('Enter: '))
+        else:
+            print("Turn fo O\n")
+            inp = int(input('Enter block number: '))
+        print()
+        #turns
+        if m % 2 == 0:
+            blocks[inp] = "X"
+        else:
+            blocks[inp] = "O"
+        # draw check
+        if m == 8:
+            print("Game Draw")
+            show()
+        win_check()
+        if win == 1:
+            show()
+            break
